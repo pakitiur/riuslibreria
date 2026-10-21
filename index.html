@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Permite usar acentos y ñ -->
+    <meta charset="UTF-8">
+
+    <!-- Hace que la página se vea bien en celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>RIUS | Eduardo del Río</title>
+
+    <!-- Fuente de Google Fonts para los títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!-- Conecta este HTML con el archivo de estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ========== 1. MENÚ ========== -->
+    <header>
+        <div class="logo">RIUS |<span> Eduardo del Río</span></div>
+        <nav>
+            <a href="#inicio">INICIO</a>
+            <a href="#libros">CATÁLOGO</a>
+            <a href="#autor">¿QUIÉN?</a>
+            <a href="#merch">TIENDA</a>
+            
+            <!-- Botón Mi Carrito que despliega la ventanita flotante al darle clic -->
+            <details id="carrito-menu" class="carrito-dropdown">
+                <summary class="btn-mi-carrito">
+                    <!-- Ícono de Carrito SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    Mi Carrito
+                </summary>
+
+                <!-- Ventanita flotante del carrito -->
+                <div class="ventana-carrito">
+                    <h3>Mi <span>Carrito</span></h3>
+                    <ul id="lista"></ul>
+                    <div class="carrito-pie">
+                        <p class="carrito-total">Total: <span>$<span id="total">0</span></span></p>
+                        <button id="vaciar" class="btn-vaciar">Vaciar carrito</button>
+                    </div>
+                </div>
+            </details>
+        </nav>
+    </header>
+
+    <!-- ========== 2. PORTADA ========== -->
+    <section id="inicio" class="portada">
+        <h1>El humor <span>y la crítica</span> gráfica</h1>
+        <p>Descubre la obra de Eduardo del Río "Rius", el caricaturista que educó a generaciones de mexicanos mezclando el humor, la sátira política y la divulgación histórica.</p>
+        <a href="#libros" class="boton">Ver Catálogo</a>
+    </section>
+
+    <!-- ========== 3. LIBROS ========== -->
+    <section id="libros">
+        <h2>Libros <span>Destacados</span></h2>
+
+        <div class="contenedor-tarjetas">
+
+            <div class="tarjeta" data-titulo="Marx para principiantes" data-precio="180">
+                <img src="img/img01.jpg" alt="Marx para principiantes">
+                <h3>Marx para principiantes</h3>
+                <p class="datos">1972 • Divulgación y Filosofía</p>
+                <p>Una introducción ilustrada y accesible al pensamiento de Karl Marx, sus teorías económicas y el materialismo histórico.</p>
+                <p class="precio">$180</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta" data-titulo="Cuba para principiantes" data-precio="160">
+                <img src="img/img02.jpg" alt="Cuba para principiantes">
+                <h3>Cuba para principiantes</h3>
+                <p class="datos">1966 • Historia y Política</p>
+                <p>Un recorrido histórico en cómic que narra los antecedentes y el desarrollo de la Revolución Cubana de forma sencilla.</p>
+                <p class="precio">$160</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta" data-titulo="La panza es primero" data-precio="190">
+                <img src="img/img03.jpeg" alt="La panza es primero">
+                <h3>La panza es primero</h3>
+                <p class="datos">1973 • Salud y Nutrición</p>
+                <p>Una crítica a los malos hábitos alimenticios del mexicano, promoviendo el vegetarianismo y la comida sana con mucho humor.</p>
+                <p class="precio">$190</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta" data-titulo="Manual del perfecto ateo" data-precio="175">
+                <img src="img/img04.jpg" alt="Manual del perfecto ateo">
+                <h3>Manual del perfecto ateo</h3>
+                <p class="datos">1981 • Religión y Sátira</p>
+                <p>Un análisis crítico, satírico e irreverente sobre las religiones, sus contradicciones y el papel de la Iglesia en la sociedad.</p>
+                <p class="precio">$175</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta" data-titulo="El mito guadalupano" data-precio="170">
+                <img src="img/img05.jpg" alt="El mito guadalupano">
+                <h3>El mito guadalupano</h3>
+                <p class="datos">1981 • Historia y Religión</p>
+                <p>Una investigación documentada e ilustrada que cuestiona los orígenes de la aparición de la Virgen de Guadalupe en México.</p>
+                <p class="precio">$170</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta" data-titulo="500 años fregados..." data-precio="185">
+                <img src="img/img06.jpeg" alt="500 años fregados pero cristianos">
+                <h3>500 años fregados...</h3>
+                <p class="datos">1992 • Historia y Crítica</p>
+                <p>Un libro publicado en el marco del quinto centenario del descubrimiento de América, analizando el impacto de la conquista.</p>
+                <p class="precio">$185</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta" data-titulo="Filosofía para principiantes" data-precio="195">
+                <img src="img/img07.jpeg" alt="Filosofía para principiantes">
+                <h3>Filosofía para principiantes</h3>
+                <p class="datos">1985 • Filosofía</p>
+                <p>Un viaje por la historia del pensamiento humano, desde los griegos hasta la era moderna, explicado con dibujos y humor.</p>
+                <p class="precio">$195</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta" data-titulo="ABChé" data-precio="165">
+                <img src="img/img08.jpeg" alt="ABChé">
+                <h3>ABChé</h3>
+                <p class="datos">1978 • Biografía y Política</p>
+                <p>La vida, obra y pensamiento de Ernesto "Che" Guevara desglosada en formato de historieta para entender sus ideales.</p>
+                <p class="precio">$165</p>
+                <button class="btn-carrito agregar">Agregar al carrito</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== 4. EL AUTOR ========== -->
+    <section id="autor">
+        <div class="contenedor-autor">
+            <div class="autor-texto">
+                <h2>El legado de <span>Rius</span></h2>
+                <p>
+                    Eduardo del Río (1934 - 2017) fue mucho más que un caricaturista; fue un maestro de la divulgación. Con su estilo único, combinó el cómic con la investigación documental para acercar temas complejos de historia, política, filosofía y salud a millones de personas. Su obra es un pilar de la contracultura y el pensamiento crítico en México y Latinoamérica.
+                </p>
+            </div>
+            <div class="autor-imagen">
+                <img src="img/rius.jpg" alt="Fotografía de Rius">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 5. MERCANCÍA / TIENDA ========== -->
+    <section id="merch">
+        <h2>Tienda <span>Oficial</span></h2>
+
+        <div class="contenedor-merch">
+            <!-- Artículo 1: Playera Vino -->
+            <div class="tarjeta-merch tarjeta" data-titulo="Playera Soy ateo gracias a Rius" data-precio="320">
+                <img src="img/playera2.jpg" alt="Playera Color Vino - Soy Ateo">
+                <div class="info-merch">
+                    <h3>Playera "Soy ateo gracias a Rius"</h3>
+                    <p class="datos">Color: Vino • 100% Algodón</p>
+                    <p>Una declaración de principios con el humor irreverente clásico del maestro. Esta playera rinde homenaje a una de sus frases y obras más reconocidas.</p>
+                    <p class="precio">$320</p>
+                    <div class="acciones-merch">
+                        <select class="select-talla">
+                            <option value="">Seleccionar Talla</option>
+                            <option value="s">Chica (CH)</option>
+                            <option value="m">Mediana (M)</option>
+                            <option value="l">Grande (G)</option>
+                            <option value="xl">Extra Grande (XG)</option>
+                        </select>
+                        <button class="btn-merch agregar">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artículo 2: Playera Blanca -->
+            <div class="tarjeta-merch tarjeta" data-titulo="Playera Clásica RIUS" data-precio="300">
+                <img src="img/playera1.jpg" alt="Playera Color Blanco - RIUS">
+                <div class="info-merch">
+                    <h3>Playera Clásica "RIUS"</h3>
+                    <p class="datos">Color: Blanco • 100% Algodón</p>
+                    <p>El logotipo clásico con las letras del ilustrador. Minimalista pero con mucho peso histórico. Una pieza indispensable para verdaderos fans.</p>
+                    <p class="precio">$300</p>
+                    <div class="acciones-merch">
+                        <select class="select-talla">
+                            <option value="">Seleccionar Talla</option>
+                            <option value="s">Chica (CH)</option>
+                            <option value="m">Mediana (M)</option>
+                            <option value="l">Grande (G)</option>
+                            <option value="xl">Extra Grande (XG)</option>
+                        </select>
+                        <button class="btn-merch agregar">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 6. BOLETÍN / SUSCRIPCIÓN ========== -->
+    <section id="boletin">
+        <div class="seccion-boletin">
+            <h2>Únete a la <span>Resistencia Gráfica</span></h2>
+            <p>Suscríbete a nuestro boletín para recibir noticias, descuentos exclusivos en libros y tiras cómicas clásicas directo en tu bandeja de entrada.</p>
+            
+            <form action="#" method="POST" class="formulario-boletin">
+                <input type="email" placeholder="Escribe tu correo electrónico" required>
+                <button type="submit" class="boton">Suscribirme</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== 7. PIE DE PÁGINA (REALISTA) ========== -->
+    <footer class="footer-real">
+        <div class="footer-contenedor">
+            
+            <div class="footer-columna">
+                <div class="logo">RIUS |<span> Eduardo del Río</span></div>
+                <p>La librería oficial dedicada a preservar y difundir el legado del máximo exponente de la caricatura y crítica sociopolítica en México.</p>
+            </div>
+            
+            <div class="footer-columna">
+                <h3>Enlaces de <span>Ayuda</span></h3>
+                <ul>
+                    <li><a href="#">Políticas de envío</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Contacto y devoluciones</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-columna">
+                <h3>Síguenos</h3>
+                <div class="redes-sociales">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter (X)</a>
+                    <a href="#">Instagram</a>
+                </div>
+                <p class="metodos-pago">Aceptamos tarjetas de crédito, débito, PayPal y pagos en tiendas OXXO.</p>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Penguin Random House | Grupo Editorial México © 2026</p>
+        </div>
+    </footer>
+
+    <!-- Conecta el archivo JavaScript al final del body -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,637 @@
+/* =========================================================
+   ESTILOS ADAPTADOS A "ESTILO RIUS" (Amarillo y oscuro)
+   ========================================================= */
+
+/* ---------- GENERAL ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1814;   /* Fondo oscuro cálido */
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+/* Los títulos usan la fuente estilo póster */
+h1, h2, h3, .logo {
+    font-family: "Bebas Neue", Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Las palabras dentro de <span> en los títulos van en amarillo Rius */
+h1 span, h2 span, h3 span, .logo span {
+    color: #ffcc00;              /* Amarillo característico */
+}
+
+a {
+    text-decoration: none;       
+}
+
+section {
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+
+/* ---------- MENÚ ---------- */
+header {
+    position: sticky;            
+    top: 0;
+    background-color: #110f0d;
+    border-bottom: 2px solid #332d26;
+    display: flex;               
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;             
+    gap: 10px;
+    padding: 15px 30px;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* ---------- BOTÓN Y VENTANITA FLOTANTE MI CARRITO (HEADER) ---------- */
+.carrito-dropdown {
+    position: relative;
+    margin-left: 30px;
+}
+
+/* Quitamos la flechita por defecto del navegador */
+.carrito-dropdown summary {
+    list-style: none;
+}
+
+.carrito-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.btn-mi-carrito {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.btn-mi-carrito svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-mi-carrito:hover,
+.carrito-dropdown[open] .btn-mi-carrito {
+    background-color: #ffcc00;
+    color: #111;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+}
+
+/* La ventanita que sale al darle clic al carrito */
+.ventana-carrito {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    width: 340px;
+    background-color: #26231f;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
+    z-index: 200;
+    animation: abrirVentana 0.2s ease-out;
+}
+
+/* Pequeño piquito arriba de la ventana apuntando al botón */
+.ventana-carrito::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 25px;
+    width: 12px;
+    height: 12px;
+    background-color: #26231f;
+    border-left: 2px solid #ffcc00;
+    border-top: 2px solid #ffcc00;
+    transform: rotate(45deg);
+}
+
+@keyframes abrirVentana {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ventana-carrito h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #332d26;
+    padding-bottom: 6px;
+}
+
+#lista {
+    list-style: none;
+    margin-bottom: 15px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+/* Mensaje cuando el carrito está vacío */
+#lista:empty::before {
+    content: "Tu carrito está vacío. ¡Agrega tus libros o playeras favoritas!";
+    color: #7e8799;
+    font-style: italic;
+    font-size: 13px;
+    display: block;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: #1a1814;
+    border-radius: 6px;
+    border: 1px dashed #332d26;
+}
+
+#lista li {
+    background-color: #1a1814;
+    color: #f0f0f0;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-left: 4px solid #ffcc00;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.carrito-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 2px solid #332d26;
+}
+
+.carrito-total {
+    font-family: "Bebas Neue", Arial, sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.carrito-total span {
+    color: #ffcc00;
+}
+
+.btn-vaciar {
+    background-color: transparent;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-vaciar:hover {
+    background-color: #ffcc00;
+    color: #111;
+}
+
+/* ---------- PORTADA ---------- */
+.portada {
+    max-width: none;
+    padding: 140px 30px;
+    /* Usamos la imagen que ya tenías vinculada */
+    background: linear-gradient(rgba(26, 24, 20, 0.8), rgba(26, 24, 20, 0.9)),
+                url("img/portada.jpeg");
+    background-size: cover;      
+    background-position: center;
+    text-align: center;
+}
+
+.portada h1 {
+    font-size: 85px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.portada p {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-size: 18px;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #111;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton:hover {
+    background-color: #ffe600;
+    transform: scale(1.05);
+}
+
+/* ---------- TARJETAS DE LIBROS ---------- */
+.contenedor-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta {
+    width: 250px;
+    background-color: #26231f;
+    border: 2px solid #332d26;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    
+    /* Contenedor flexible en columna para empujar el botón abajo */
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;           
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #111;
+    background-color: #111; /* Por si falla la carga local */
+}
+
+.tarjeta h3 {
+    font-size: 26px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.datos {
+    color: #ffcc00;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.tarjeta p {
+    font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 15px; /* Espacio extra para separar del botón */
+}
+
+.precio {
+    font-family: "Bebas Neue", Arial, sans-serif;
+    font-size: 28px !important;
+    color: #ffcc00 !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 1px;
+}
+
+.tarjeta:hover {
+    border-color: #ffcc00;
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(255, 204, 0, 0.1);
+}
+
+/* ---------- BOTÓN DEL CARRITO EN LIBROS ---------- */
+.btn-carrito {
+    margin-top: auto; /* Lo empuja hasta el fondo de la tarjeta */
+    width: 100%;
+    background-color: #ffcc00;
+    color: #111;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    
+    /* Efecto inicial oculto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+/* Cuando pasas el mouse, aparece el botón */
+.tarjeta:hover .btn-carrito {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btn-carrito:hover {
+    background-color: #ffe600;
+    transform: scale(1.02);
+}
+
+/* ---------- EL AUTOR ---------- */
+.contenedor-autor {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; 
+}
+
+.autor-texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.autor-texto p {
+    color: #c6cad5;
+    font-size: 18px;
+}
+
+.autor-imagen {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.autor-imagen img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    border: 2px solid #ffcc00;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* ---------- TARJETAS DE MERCANCÍA (MERCH) ---------- */
+.contenedor-merch {
+    display: flex;
+    flex-direction: column; 
+    gap: 25px;
+}
+
+.tarjeta-merch {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #26231f;
+    border: 2px solid #332d26;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-merch:hover {
+    border-color: #ffcc00;
+    box-shadow: 0 8px 15px rgba(255, 204, 0, 0.1);
+}
+
+.tarjeta-merch img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #111;
+    margin-bottom: 0;
+}
+
+.info-merch {
+    flex: 1;
+    min-width: 250px;
+}
+
+.info-merch h3 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.acciones-merch {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.select-talla {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #110f0d;
+    color: #fff;
+    border: 1px solid #444;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.select-talla:focus {
+    border-color: #ffcc00;
+}
+
+.btn-merch {
+    background-color: #ffcc00;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-merch:hover {
+    background-color: #ffe600;
+    transform: scale(1.05);
+}
+
+/* ---------- BOLETÍN / SUSCRIPCIÓN ---------- */
+.seccion-boletin {
+    background-color: #ffcc00;
+    color: #111;
+    text-align: center;
+    border-radius: 10px;
+    padding: 50px 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 1000px; 
+    margin: 60px auto; 
+}
+
+.seccion-boletin h2, .seccion-boletin h2 span {
+    color: #111; 
+}
+
+.seccion-boletin p {
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.formulario-boletin {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.formulario-boletin input {
+    padding: 14px 20px;
+    font-size: 16px;
+    border: 2px solid #111;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 350px;
+    outline: none;
+    font-family: inherit;
+}
+
+.formulario-boletin input:focus {
+    border-color: #555;
+}
+
+.formulario-boletin .boton {
+    background-color: #111;
+    color: #ffcc00;
+    border: 2px solid #111;
+    cursor: pointer;
+}
+
+.formulario-boletin .boton:hover {
+    background-color: #333;
+    color: #ffe600;
+}
+
+/* ---------- PIE DE PÁGINA REALISTA ---------- */
+.footer-real {
+    background-color: #0d0c0a;
+    color: #c6cad5;
+    border-top: 3px solid #332d26;
+    padding-top: 60px;
+}
+
+.footer-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 40px 20px;
+}
+
+.footer-columna {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-columna .logo {
+    font-size: 30px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.footer-columna p {
+    font-size: 15px;
+}
+
+.footer-columna h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: "Bebas Neue", Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+.footer-columna h3 span {
+    color: #ffcc00;
+}
+
+.footer-columna ul {
+    list-style: none;
+}
+
+.footer-columna ul li {
+    margin-bottom: 12px;
+}
+
+.footer-columna ul li a, .redes-sociales a {
+    color: #c6cad5;
+    transition: color 0.3s;
+    font-size: 15px;
+}
+
+.footer-columna ul li a:hover, .redes-sociales a:hover {
+    color: #ffcc00;
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.metodos-pago {
+    font-size: 13px !important;
+    color: #7e8799 !important;
+    margin-top: 15px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 25px;
+    background-color: #050403;
+    border-top: 1px solid #1a1814;
+    font-size: 14px;
+    color: #7e8799;
+}
